@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Quizzes</string>
+    <string name="list_view_title">Choose a topic</string>
+    <string name="first_topic_title">First Topic</string>
+    <string name="second_topic_title">Second Topic</string>
+    <string name="third_topic_title">Third Topic</string>
+    <string name="action_settings">Settings</string>
+</resources>
