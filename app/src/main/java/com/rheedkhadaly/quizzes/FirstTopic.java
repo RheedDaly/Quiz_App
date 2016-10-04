@@ -1,11 +1,8 @@
 package com.rheedkhadaly.quizzes;
 
 import android.app.Dialog;
-import android.app.DialogFragment;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,13 +11,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 /**
  * Created by Rheed on 9/28/2016.
  */
 
-public class FirstTopic extends AppCompatActivity {
+public class FirstTopic extends AppCompatActivity{
 
     String topics[] = {"FirstTopic", "SecondTopic", "ThirdTopic"};
 
@@ -62,30 +59,15 @@ public class FirstTopic extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
 
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-                alertDialogBuilder.setMessage("Are you sure,You wanted to make decision");
+                Dialog a = new Dialog(this);
+                a.setTitle("Quit Quiz");
+                TextView tv = new TextView(this);
+                a.show();
 
-                alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        Intent myIntent = new Intent("com.rheedkhadaly.quizzes.MAINACTIVITY");
-                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(myIntent);
-                    }
-                });
-
-                alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent myIntent = new Intent("com.rheedkhadaly.quizzes.FIRSTTOPIC");
-                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(myIntent);
-                    }
-                });
-
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
-
+                Intent myIntent = new Intent("com.rheedkhadaly.quizzes.MAINACTIVITY");
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(myIntent);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
