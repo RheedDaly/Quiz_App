@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -28,7 +27,7 @@ public class FirstTopic extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ListAdapter topicAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, topics);
+        ListAdapter topicAdapter = new CustomAdapter(this, topics);
         ListView topicListView = (ListView)findViewById(R.id.quiz_list_view);
         topicListView.setAdapter(topicAdapter);
 
