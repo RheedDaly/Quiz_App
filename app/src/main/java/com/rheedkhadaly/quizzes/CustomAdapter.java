@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 /**
@@ -27,11 +28,18 @@ class CustomAdapter extends ArrayAdapter<String> {
         View customView = topicInflater.inflate(R.layout.custom_row, parent, false);
 
         String st_topic = getItem(position);
-        TextView topicView = (TextView) customView.findViewById(R.id.textView2);
-        ImageView topicImage = (ImageView) customView.findViewById(R.id.imageView);
 
-        topicView.setText(st_topic);
-        topicImage.setImageResource(R.drawable.quiz_picture);
+        ImageView quizImage = (ImageView) customView.findViewById(R.id.imageQuizPicture);
+
+        TextView textQuestions = (TextView) customView.findViewById(R.id.txtQuestions);
+
+        RadioButton radioComma = (RadioButton) customView.findViewById(R.id.rbtnComma);
+        RadioButton radioSemiColon = (RadioButton) customView.findViewById(R.id.rbtnSemiColon);
+        RadioButton radioExclamation = (RadioButton) customView.findViewById(R.id.rbtnExclamation);
+        RadioButton radioQuestionMark = (RadioButton) customView.findViewById(R.id.rbtnQuestionMark);
+
+        textQuestions.setText(st_topic);
+        quizImage.setImageResource(R.drawable.quiz_picture);
 
         return customView;
     }

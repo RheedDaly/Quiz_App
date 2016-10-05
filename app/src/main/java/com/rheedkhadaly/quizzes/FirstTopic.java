@@ -18,7 +18,7 @@ import android.widget.ListView;
 
 public class FirstTopic extends AppCompatActivity {
 
-    String topics[] = {"FirstTopic", "SecondTopic", "ThirdTopic"};
+    String topics[] = {"What does the sign above mean?", "SecondTopic", "ThirdTopic"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,8 @@ public class FirstTopic extends AppCompatActivity {
             case android.R.id.home:
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-                alertDialogBuilder.setMessage("Are you sure,You wanted to make decision");
+                alertDialogBuilder.setTitle("Quit First Topic Questions");
+                alertDialogBuilder.setMessage("Do you want to quit first topic?");
 
                 alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
@@ -70,7 +71,7 @@ public class FirstTopic extends AppCompatActivity {
                     }
                 });
 
-                alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+                alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent myIntent = new Intent("com.rheedkhadaly.quizzes.FIRSTTOPIC");
@@ -85,7 +86,5 @@ public class FirstTopic extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
-
     }
 }
