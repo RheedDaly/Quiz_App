@@ -6,15 +6,16 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:background="@color/colorAccent"
+            android:background="#00e6e6"
             android:orientation="vertical">
 
             <ImageView
@@ -35,7 +36,9 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="What does the sign above mean?" />
+                android:text="What does the sign above mean?"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -48,34 +51,39 @@
                     android:id="@+id/rbtnComma"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Comma" />
+                    android:layout_marginBottom="20dp"
+                    android:text="Comma"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/rbtnExclamation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Exclamation" />
+                    android:layout_marginBottom="20dp"
+                    android:text="Exclamation"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/rbtnSemiColon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Semi-colon" />
+                    android:layout_marginBottom="20dp"
+                    android:text="Semi-colon"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/rbtnQuestionMark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Question mark" />
+                    android:layout_marginBottom="20dp"
+                    android:text="Question mark"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
 
             </RadioGroup>
-
-            <ProgressBar
-                android:id="@+id/pgbTimer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
