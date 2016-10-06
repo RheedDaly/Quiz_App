@@ -27,7 +27,7 @@ public class FirstTopic extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ListAdapter topicAdapter = new CustomAdapter(this, topics);
+        ListAdapter topicAdapter = new CustomQuestionAdapter(this, topics);
         ListView topicListView = (ListView)findViewById(R.id.quiz_list_view);
         topicListView.setAdapter(topicAdapter);
 

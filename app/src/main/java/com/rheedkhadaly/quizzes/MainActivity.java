@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -18,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ListAdapter topicAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, topics);
+
+        ListAdapter topicAdapter = new CustomTopicAdapter(this, topics);
         ListView topicListView = (ListView)findViewById(R.id.topics_list_view);
         topicListView.setAdapter(topicAdapter);
 

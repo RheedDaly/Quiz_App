@@ -14,9 +14,9 @@ import android.widget.TextView;
  * Created by Rheed on 10/4/2016.
  */
 
-class CustomAdapter extends ArrayAdapter<String> {
+class CustomQuestionAdapter extends ArrayAdapter<String> {
 
-    CustomAdapter(Context context, String[] quizQuestions) {
+    CustomQuestionAdapter(Context context, String[] quizQuestions) {
         super(context, R.layout.first_topic, quizQuestions);
     }
 
@@ -25,7 +25,7 @@ class CustomAdapter extends ArrayAdapter<String> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         LayoutInflater topicInflater = LayoutInflater.from(getContext());
-        View customView = topicInflater.inflate(R.layout.custom_row, parent, false);
+        View customView = topicInflater.inflate(R.layout.custom_question_list, parent, false);
 
         String st_topic = getItem(position);
 
