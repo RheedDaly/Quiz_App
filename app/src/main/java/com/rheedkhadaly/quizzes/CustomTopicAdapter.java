@@ -33,7 +33,7 @@ class CustomTopicAdapter extends ArrayAdapter<String> {
         TextView textTopic = (TextView) customView.findViewById(R.id.txtTopic);
 
         textTopic.setText(st_topic);
-        quizImage.setImageResource(R.drawable.quiz_picture);
+        quizImage.setImageResource(R.drawable.one);
 
         return customView;
     }
