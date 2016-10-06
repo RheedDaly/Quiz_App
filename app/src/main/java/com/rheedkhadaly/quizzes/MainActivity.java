@@ -11,14 +11,15 @@ import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
-    String topics[] = {"FirstTopic", "SecondTopic", "ThirdTopic"};
+    String topics[] = {"FirstTopic", "SecondTopic", "ThirdTopic", "FourthTopic"};
+    Integer images[] = {R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.four};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListAdapter topicAdapter = new CustomTopicAdapter(this, topics);
+        ListAdapter topicAdapter = new CustomTopicAdapter(this, images, topics);
         ListView topicListView = (ListView)findViewById(R.id.topics_list_view);
         topicListView.setAdapter(topicAdapter);
 

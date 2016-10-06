@@ -1,6 +1,6 @@
 package com.rheedkhadaly.quizzes;
 
-import android.content.Context;
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +15,17 @@ import android.widget.TextView;
 
 class CustomTopicAdapter extends ArrayAdapter<String> {
 
-    CustomTopicAdapter(Context context, String[] quizTopics) {
+    private final Activity context;
+    private final Integer[] imageTopics;
+    private final String[] quizTopics;
+
+    CustomTopicAdapter(Activity context, Integer[] imageTopics, String[] quizTopics) {
         super(context, R.layout.activity_main, quizTopics);
+
+        this.context = context;
+        this.imageTopics = imageTopics;
+        this.quizTopics = quizTopics;
+
     }
 
     @NonNull
@@ -24,16 +33,15 @@ class CustomTopicAdapter extends ArrayAdapter<String> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         LayoutInflater topicInflater = LayoutInflater.from(getContext());
-        View customView = topicInflater.inflate(R.layout.custom_topic_list, parent, false);
 
-        String st_topic = getItem(position);
+        View customView = topicInflater.inflate(R.layout.custom_topic_list, parent, false);
 
         ImageView quizImage = (ImageView) customView.findViewById(R.id.imageTopicPicture);
 
         TextView textTopic = (TextView) customView.findViewById(R.id.txtTopic);
 
-        textTopic.setText(st_topic);
-        quizImage.setImageResource(R.drawable.one);
+        textTopic.setText(quizTopics[position]);
+        quizImage.setImageResource(imageTopics[position]);
 
         return customView;
     }
