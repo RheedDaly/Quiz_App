@@ -18,7 +18,8 @@ import android.widget.ListView;
 
 public class FirstTopic extends AppCompatActivity {
 
-    String topics[] = {"What does the sign above mean?", "SecondTopic", "ThirdTopic"};
+    String topics[] = {"Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above"};
+    Integer images[] = {R.drawable.ants, R.drawable.lamb, R.drawable.rhinoceros, R.drawable.butterfly, R.drawable.dog, R.drawable.donkey, R.drawable.owl, R.drawable.flamingo, R.drawable.stingray, R.drawable.warthog};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class FirstTopic extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ListAdapter topicAdapter = new CustomQuestionAdapter(this, topics);
+        ListAdapter topicAdapter = new CustomQuestionAdapter(this, images, topics);
         ListView topicListView = (ListView)findViewById(R.id.quiz_list_view);
         topicListView.setAdapter(topicAdapter);
 

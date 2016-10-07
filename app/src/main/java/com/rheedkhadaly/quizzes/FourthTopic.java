@@ -14,10 +14,10 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 /**
- * Created by Rheed on 9/28/2016.
+ * Created by Rheed on 10/6/2016.
  */
 
-public class SecondTopic extends AppCompatActivity {
+public class FourthTopic extends AppCompatActivity {
 
     String topics[] = {"Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above"};
     Integer images[] = {R.drawable.ants, R.drawable.lamb, R.drawable.rhinoceros, R.drawable.butterfly, R.drawable.dog, R.drawable.donkey, R.drawable.owl, R.drawable.flamingo, R.drawable.stingray, R.drawable.warthog};
@@ -25,7 +25,7 @@ public class SecondTopic extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.second_topic);
+        setContentView(R.layout.fouth_topic);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -76,7 +76,7 @@ public class SecondTopic extends AppCompatActivity {
                 alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent myIntent = new Intent("com.rheedkhadaly.quizzes.SECONDTOPIC");
+                        Intent myIntent = new Intent("com.rheedkhadaly.quizzes.FIRSTTOPIC");
                         myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(myIntent);
                     }

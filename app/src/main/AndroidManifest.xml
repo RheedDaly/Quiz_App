@@ -47,5 +47,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".FourthTopic"
+            android:label="@string/fourth_topic_title">
+            <intent-filter>
+                <action android:name="com.rheedkhadaly.quizzes.FOURTHTOPIC" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>
