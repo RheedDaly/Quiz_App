@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +27,35 @@ public class SecondTopic extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_topic);
+
+        LayoutInflater layoutInflaterAndroid = LayoutInflater.from(this);
+        View mView = layoutInflaterAndroid.inflate(R.layout.user_input_dialg_box, null);
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setView(mView);
+
+        alertDialogBuilder.setTitle("Add User Details");
+
+        alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                Intent myIntent = new Intent("com.rheedkhadaly.quizzes.MAINACTIVITY");
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(myIntent);
+            }
+        });
+
+        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent myIntent = new Intent("com.rheedkhadaly.quizzes.SECONDTOPIC");
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(myIntent);
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -76,7 +106,7 @@ public class SecondTopic extends AppCompatActivity {
                 alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent myIntent = new Intent("com.rheedkhadaly.quizzes.SECONDTOPIC");
+                        Intent myIntent = new Intent("com.rheedkhadaly.quizzes.FIRSTTOPIC");
                         myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(myIntent);
                     }
@@ -88,5 +118,34 @@ public class SecondTopic extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Quit First Topic Questions");
+        alertDialogBuilder.setMessage("Do you want to quit first topic?");
+
+        alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                Intent myIntent = new Intent("com.rheedkhadaly.quizzes.MAINACTIVITY");
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(myIntent);
+            }
+        });
+
+        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent myIntent = new Intent("com.rheedkhadaly.quizzes.SECONDTOPIC");
+                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(myIntent);
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 }

@@ -5,5 +5,7 @@
     <string name="second_topic_title">Second Topic</string>
     <string name="third_topic_title">Third Topic</string>
     <string name="fourth_topic_title">Fourth Topic</string>
+    <string name="text_male">Male</string>
+    <string name="text_female">Female</string>
     <string name="action_settings">Settings</string>
 </resources>
