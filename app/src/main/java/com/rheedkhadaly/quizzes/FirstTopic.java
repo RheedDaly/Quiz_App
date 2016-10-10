@@ -44,12 +44,11 @@ public class FirstTopic extends AppCompatActivity {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setView(mView);
 
-        alertDialogBuilder.setTitle("Add User Details");
+        alertDialogBuilder.setTitle("Add User");
 
         name = (EditText) mView.findViewById(R.id.edit_text_name);
         rbmale = (RadioButton) mView.findViewById(R.id.radio_button_male);
         rbfemale = (RadioButton) mView.findViewById(R.id.radio_button_female);
-
 
         alertDialogBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
