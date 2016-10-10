@@ -11,17 +11,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 /**
  * Created by Rheed on 10/6/2016.
  */
 
-public class FourthTopic extends AppCompatActivity {
+public class FourthTopic extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
 
     String topics[] = {"Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above"};
     Integer images[] = {R.drawable.ants, R.drawable.lamb, R.drawable.rhinoceros, R.drawable.butterfly, R.drawable.dog, R.drawable.donkey, R.drawable.owl, R.drawable.flamingo, R.drawable.stingray, R.drawable.warthog};
+
+    String gender;
+
+    EditText name;
+    RadioButton rbmale = (RadioButton) findViewById(R.id.radio_button_male);
+    RadioButton rbfemale = (RadioButton) findViewById(R.id.radio_button_female);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,19 +46,19 @@ public class FourthTopic extends AppCompatActivity {
 
         alertDialogBuilder.setTitle("Add User Details");
 
-        alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        alertDialogBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
-                Intent myIntent = new Intent("com.rheedkhadaly.quizzes.MAINACTIVITY");
-                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(myIntent);
+
+
+                Toast.makeText(FourthTopic.this, "Hey " + name + " " + gender, Toast.LENGTH_SHORT);
             }
         });
 
-        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent myIntent = new Intent("com.rheedkhadaly.quizzes.FOURTHTOPIC");
+                Intent myIntent = new Intent("com.rheedkhadaly.quizzes.MAINACTIVITY");
                 myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(myIntent);
             }
@@ -75,6 +85,18 @@ public class FourthTopic extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        switch (checkedId) {
+            case R.id.radio_button_male:
+                gender = rbmale.getText().toString();
+                break;
+            case R.id.radio_button_female:
+                gender = rbfemale.getText().toString();
+                break;
+        }
     }
 
     @Override

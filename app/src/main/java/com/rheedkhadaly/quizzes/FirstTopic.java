@@ -10,8 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
 /**
  * Created by Rheed on 9/28/2016.
@@ -21,6 +24,14 @@ public class FirstTopic extends AppCompatActivity {
 
     String topics[] = {"Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above"};
     Integer images[] = {R.drawable.ants, R.drawable.lamb, R.drawable.rhinoceros, R.drawable.butterfly, R.drawable.dog, R.drawable.donkey, R.drawable.owl, R.drawable.flamingo, R.drawable.stingray, R.drawable.warthog};
+
+    String gender;
+
+    String display_name;
+
+    EditText name;
+    RadioButton rbmale;
+    RadioButton rbfemale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,19 +46,30 @@ public class FirstTopic extends AppCompatActivity {
 
         alertDialogBuilder.setTitle("Add User Details");
 
-        alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        name = (EditText) mView.findViewById(R.id.edit_text_name);
+        rbmale = (RadioButton) mView.findViewById(R.id.radio_button_male);
+        rbfemale = (RadioButton) mView.findViewById(R.id.radio_button_female);
+
+
+        alertDialogBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
-                Intent myIntent = new Intent("com.rheedkhadaly.quizzes.MAINACTIVITY");
-                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(myIntent);
+
+                display_name = name.getText().toString();
+
+                if (rbmale.isChecked()) {
+                    gender = rbmale.getText().toString();
+                } else {
+                    gender = rbfemale.getText().toString();
+                }
+                Toast.makeText(FirstTopic.this, "Hey " + display_name + " " + gender, Toast.LENGTH_SHORT).show();
             }
         });
 
         alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent myIntent = new Intent("com.rheedkhadaly.quizzes.FIRSTTOPIC");
+                Intent myIntent = new Intent("com.rheedkhadaly.quizzes.MAINACTIVITY");
                 myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(myIntent);
             }
