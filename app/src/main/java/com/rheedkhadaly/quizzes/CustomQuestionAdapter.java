@@ -17,13 +17,15 @@ import android.widget.TextView;
 class CustomQuestionAdapter extends ArrayAdapter<String> {
 
     private final Activity context;
+    private final String[] texts;
     private final Integer[] quizImages;
     private final String[] quizQuestions;
 
-    CustomQuestionAdapter(Activity context, Integer[] quizImages, String[] quizQuestions) {
+    CustomQuestionAdapter(Activity context, String[] texts, Integer[] quizImages, String[] quizQuestions) {
         super(context, R.layout.first_topic, quizQuestions);
 
         this.context = context;
+        this.texts = texts;
         this.quizImages = quizImages;
         this.quizQuestions = quizQuestions;
     }

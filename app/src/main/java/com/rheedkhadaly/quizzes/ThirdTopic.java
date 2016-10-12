@@ -3,6 +3,7 @@ package com.rheedkhadaly.quizzes;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -14,19 +15,34 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import java.util.Locale;
+
 /**
  * Created by Rheed on 9/28/2016.
  */
 
 public class ThirdTopic extends AppCompatActivity {
 
+    static final String[] texts = {"Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki"};
+
     String topics[] = {"Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above"};
     Integer images[] = {R.drawable.ants, R.drawable.lamb, R.drawable.rhinoceros, R.drawable.butterfly, R.drawable.dog, R.drawable.donkey, R.drawable.owl, R.drawable.flamingo, R.drawable.stingray, R.drawable.warthog};
+
+    TextToSpeech tts;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.third_topic);
+
+        tts = new TextToSpeech(ThirdTopic.this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.ERROR) {
+                    tts.setLanguage(Locale.US);
+                }
+            }
+        });
 
         LayoutInflater layoutInflaterAndroid = LayoutInflater.from(this);
         View mView = layoutInflaterAndroid.inflate(R.layout.user_input_dialg_box, null);
@@ -59,7 +75,7 @@ public class ThirdTopic extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ListAdapter topicAdapter = new CustomQuestionAdapter(this, images, topics);
+        ListAdapter topicAdapter = new CustomQuestionAdapter(this, texts, images, topics);
         ListView topicListView = (ListView) findViewById(R.id.quiz_list_view);
         topicListView.setAdapter(topicAdapter);
 
@@ -75,6 +91,14 @@ public class ThirdTopic extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onPause() {
+        if (tts != null) {
+
+        }
+        super.onPause();
     }
 
     @Override

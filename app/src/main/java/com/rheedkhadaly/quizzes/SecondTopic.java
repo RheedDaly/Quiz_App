@@ -20,6 +20,8 @@ import android.widget.ListView;
 
 public class SecondTopic extends AppCompatActivity {
 
+    static final String[] texts = {"Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki"};
+
     String topics[] = {"Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above"};
     Integer images[] = {R.drawable.ants, R.drawable.lamb, R.drawable.rhinoceros, R.drawable.butterfly, R.drawable.dog, R.drawable.donkey, R.drawable.owl, R.drawable.flamingo, R.drawable.stingray, R.drawable.warthog};
 
@@ -59,7 +61,7 @@ public class SecondTopic extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ListAdapter topicAdapter = new CustomQuestionAdapter(this, images, topics);
+        ListAdapter topicAdapter = new CustomQuestionAdapter(this, texts, images, topics);
         ListView topicListView = (ListView) findViewById(R.id.quiz_list_view);
         topicListView.setAdapter(topicAdapter);
 
