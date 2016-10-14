@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String page = topics[position];
                 try{
+                    Toast.makeText(MainActivity.this, page, Toast.LENGTH_SHORT).show();
                     Class ourpage = Class.forName("com.rheedkhadaly.quizzes." + page);
                     Intent a = new Intent(MainActivity.this, ourpage);
                     startActivity(a);

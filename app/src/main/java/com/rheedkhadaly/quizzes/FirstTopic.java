@@ -3,7 +3,6 @@ package com.rheedkhadaly.quizzes;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -11,27 +10,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
-
-import java.util.Locale;
-import java.util.Random;
-
 /**
  * Created by Rheed on 9/28/2016.
  */
 
-public class FirstTopic extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
+public class FirstTopic extends AppCompatActivity {
 
-    static final String[] texts = {"Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki"};
-
-    String topics[] = {"Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above"};
     Integer images[] = {R.drawable.ants, R.drawable.lamb, R.drawable.rhinoceros, R.drawable.butterfly, R.drawable.dog, R.drawable.donkey, R.drawable.owl, R.drawable.flamingo, R.drawable.stingray, R.drawable.warthog};
+    String quiz_questions[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
+    String quiz_answers[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
+    String answers[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
 
     String gender;
 
@@ -41,26 +34,10 @@ public class FirstTopic extends AppCompatActivity implements RadioGroup.OnChecke
     RadioButton rbmale;
     RadioButton rbfemale;
 
-    TextToSpeech tts;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_topic);
-
-        Button b = (Button) findViewById(R.id.fd);
-        b.setOnClickListener(this);
-
-        tts = new TextToSpeech(FirstTopic.this, new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if (status != TextToSpeech.ERROR) {
-                    tts.setLanguage(Locale.US);
-                }
-            }
-        });
 
         LayoutInflater layoutInflaterAndroid = LayoutInflater.from(this);
         View mView = layoutInflaterAndroid.inflate(R.layout.user_input_dialg_box, null);
@@ -84,7 +61,6 @@ public class FirstTopic extends AppCompatActivity implements RadioGroup.OnChecke
 
                 Toast.makeText(FirstTopic.this, "Hey " + display_name + " " + gender, Toast.LENGTH_LONG).show();
 
-
             }
         });
 
@@ -102,7 +78,7 @@ public class FirstTopic extends AppCompatActivity implements RadioGroup.OnChecke
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ListAdapter topicAdapter = new CustomQuestionAdapter(this, texts, images, topics);
+        ListAdapter topicAdapter = new CustomQuestionAdapter(this, images, quiz_questions, quiz_answers, answers);
         ListView topicListView = (ListView)findViewById(R.id.quiz_list_view);
         topicListView.setAdapter(topicAdapter);
 
@@ -110,44 +86,12 @@ public class FirstTopic extends AppCompatActivity implements RadioGroup.OnChecke
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                try{
+                String s = String.valueOf(parent.getItemAtPosition(position));
 
-                } catch (Exception e) {
-
-                }
+                Toast.makeText(FirstTopic.this, s, Toast.LENGTH_SHORT).show();
             }
         });
 
-    }
-
-    @Override
-    public void onClick(View v) {
-        Random r = new Random();
-        String random = texts[r.nextInt(texts.length)];
-        tts.speak(random, TextToSpeech.QUEUE_FLUSH, null);
-
-        Toast.makeText(FirstTopic.this, "Hey ", Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    protected void onPause() {
-        if (tts != null) {
-
-        }
-        super.onPause();
-    }
-
-    @Override
-    public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-        switch (checkedId) {
-            case R.id.radio_button_male:
-                gender = rbmale.getText().toString();
-                break;
-            case R.id.radio_button_female:
-                gender = rbfemale.getText().toString();
-                break;
-        }
     }
 
     @Override

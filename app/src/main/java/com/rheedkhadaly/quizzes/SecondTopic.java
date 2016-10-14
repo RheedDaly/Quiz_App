@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 /**
  * Created by Rheed on 9/28/2016.
@@ -20,10 +21,10 @@ import android.widget.ListView;
 
 public class SecondTopic extends AppCompatActivity {
 
-    static final String[] texts = {"Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki", "Sa bora moreki"};
-
-    String topics[] = {"Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above", "Name the animal above"};
     Integer images[] = {R.drawable.ants, R.drawable.lamb, R.drawable.rhinoceros, R.drawable.butterfly, R.drawable.dog, R.drawable.donkey, R.drawable.owl, R.drawable.flamingo, R.drawable.stingray, R.drawable.warthog};
+    String quiz_questions[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
+    String quiz_answers[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
+    String answers[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,9 +42,7 @@ public class SecondTopic extends AppCompatActivity {
         alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
-                Intent myIntent = new Intent("com.rheedkhadaly.quizzes.MAINACTIVITY");
-                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(myIntent);
+
             }
         });
 
@@ -61,7 +60,7 @@ public class SecondTopic extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ListAdapter topicAdapter = new CustomQuestionAdapter(this, texts, images, topics);
+        ListAdapter topicAdapter = new CustomQuestionAdapter(this, images, quiz_questions, quiz_answers, answers);
         ListView topicListView = (ListView) findViewById(R.id.quiz_list_view);
         topicListView.setAdapter(topicAdapter);
 
@@ -70,6 +69,10 @@ public class SecondTopic extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 try {
+
+                    String s = String.valueOf(parent.getItemAtPosition(position));
+
+                    Toast.makeText(SecondTopic.this, s, Toast.LENGTH_SHORT).show();
 
                 } catch (Exception e) {
 

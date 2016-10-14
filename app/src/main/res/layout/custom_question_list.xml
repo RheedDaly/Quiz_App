@@ -16,6 +16,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:background="#00e6e6"
             android:orientation="vertical">
 
@@ -30,16 +33,32 @@
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/quiz_picture" />
 
-            <TextView
-                android:id="@+id/txtQuestions"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="What does the sign above mean?"
-                android:textColor="#ffffff"
-                android:textSize="20sp" />
+                android:background="#00e6e6"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/txtQuestions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="What does the sign above mean?"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/image_button_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_action_play" />
+
+            </LinearLayout>
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -49,7 +68,7 @@
                 android:orientation="vertical">
 
                 <RadioButton
-                    android:id="@+id/rbtnComma"
+                    android:id="@+id/radio_button_first_answer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -58,7 +77,7 @@
                     android:textSize="20sp" />
 
                 <RadioButton
-                    android:id="@+id/rbtnExclamation"
+                    android:id="@+id/radio_button_second_answer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -67,7 +86,7 @@
                     android:textSize="20sp" />
 
                 <RadioButton
-                    android:id="@+id/rbtnSemiColon"
+                    android:id="@+id/radio_button_third_answer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -76,10 +95,9 @@
                     android:textSize="20sp" />
 
                 <RadioButton
-                    android:id="@+id/rbtnQuestionMark"
+                    android:id="@+id/radio_button_fourth_answer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
                     android:text="Question mark"
                     android:textColor="#ffffff"
                     android:textSize="20sp" />
