@@ -9,35 +9,35 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.Toast;
-/**
- * Created by Rheed on 9/28/2016.
- */
 
 public class FirstTopic extends AppCompatActivity {
 
     Integer images[] = {R.drawable.ants, R.drawable.lamb, R.drawable.rhinoceros, R.drawable.butterfly, R.drawable.dog, R.drawable.donkey, R.drawable.owl, R.drawable.flamingo, R.drawable.stingray, R.drawable.warthog};
-    String quiz_questions[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
-    String quiz_answers[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
-    String answers[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
+    String quiz_questions[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
+    String[][] quiz_answers = {{"1", "2", "3", "4"}, {"5", "6", "7", "8"}, {"9", "10", "11", "12"}, {"13", "14", "15", "16"}, {"17", "18", "19", "20"}, {"21", "22", "23", "24"}, {"25", "26", "27", "28"}, {"29", "30", "31", "32"}, {"33", "34", "35", "36"}, {"37", "38", "39", "40"}};
+    String answers[] = {"1", "5", "9", "13", "17", "21", "25", "29", "33", "37"};
 
-    String gender;
+    Integer[] numbers = new Integer[99];
 
     String display_name;
 
     EditText name;
-    RadioButton rbmale;
-    RadioButton rbfemale;
+    Spinner spinnerAge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_topic);
+
+        for (int i = 0; i <= 98; i++) {
+            numbers[i] = i + 1;
+        }
 
         LayoutInflater layoutInflaterAndroid = LayoutInflater.from(this);
         View mView = layoutInflaterAndroid.inflate(R.layout.user_input_dialg_box, null);
@@ -47,10 +47,11 @@ public class FirstTopic extends AppCompatActivity {
 
         alertDialogBuilder.setTitle("Add User");
 
+        ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_item, numbers);
 
         name = (EditText) mView.findViewById(R.id.edit_text_name);
-        rbmale = (RadioButton) mView.findViewById(R.id.radio_button_male);
-        rbfemale = (RadioButton) mView.findViewById(R.id.radio_button_female);
+        spinnerAge = (Spinner) mView.findViewById(R.id.spinnerAge);
+        spinnerAge.setAdapter(adapter);
 
         alertDialogBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
@@ -59,12 +60,12 @@ public class FirstTopic extends AppCompatActivity {
                 display_name = name.getText().toString();
 
 
-                Toast.makeText(FirstTopic.this, "Hey " + display_name + " " + gender, Toast.LENGTH_LONG).show();
+                Toast.makeText(FirstTopic.this, "Hey " + display_name, Toast.LENGTH_LONG).show();
 
             }
         });
 
-        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Intent myIntent = new Intent("com.rheedkhadaly.quizzes.MAINACTIVITY");
@@ -81,17 +82,6 @@ public class FirstTopic extends AppCompatActivity {
         ListAdapter topicAdapter = new CustomQuestionAdapter(this, images, quiz_questions, quiz_answers, answers);
         ListView topicListView = (ListView)findViewById(R.id.quiz_list_view);
         topicListView.setAdapter(topicAdapter);
-
-        topicListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                String s = String.valueOf(parent.getItemAtPosition(position));
-
-                Toast.makeText(FirstTopic.this, s, Toast.LENGTH_SHORT).show();
-            }
-        });
-
     }
 
     @Override
@@ -123,9 +113,7 @@ public class FirstTopic extends AppCompatActivity {
                 alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent myIntent = new Intent("com.rheedkhadaly.quizzes.FIRSTTOPIC");
-                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(myIntent);
+
                     }
                 });
 
@@ -156,9 +144,7 @@ public class FirstTopic extends AppCompatActivity {
         alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent myIntent = new Intent("com.rheedkhadaly.quizzes.FIRSTTOPIC");
-                myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(myIntent);
+
             }
         });
 

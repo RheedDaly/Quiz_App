@@ -14,26 +14,22 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 /**
  * Created by Rheed on 10/6/2016.
  */
 
-public class FourthTopic extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
+public class FourthTopic extends AppCompatActivity {
 
     Integer images[] = {R.drawable.ants, R.drawable.lamb, R.drawable.rhinoceros, R.drawable.butterfly, R.drawable.dog, R.drawable.donkey, R.drawable.owl, R.drawable.flamingo, R.drawable.stingray, R.drawable.warthog};
-    String quiz_questions[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
-    String quiz_answers[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
+    String quiz_questions[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
+    String[][] quiz_answers = {{"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}};
     String answers[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
 
     String gender;
 
     EditText name;
-    RadioButton rbmale = (RadioButton) findViewById(R.id.radio_button_male);
-    RadioButton rbfemale = (RadioButton) findViewById(R.id.radio_button_female);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -87,18 +83,6 @@ public class FourthTopic extends AppCompatActivity implements RadioGroup.OnCheck
             }
         });
 
-    }
-
-    @Override
-    public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch (checkedId) {
-            case R.id.radio_button_male:
-                gender = rbmale.getText().toString();
-                break;
-            case R.id.radio_button_female:
-                gender = rbfemale.getText().toString();
-                break;
-        }
     }
 
     @Override

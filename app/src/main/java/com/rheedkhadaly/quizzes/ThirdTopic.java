@@ -24,8 +24,8 @@ import java.util.Locale;
 public class ThirdTopic extends AppCompatActivity {
 
     Integer images[] = {R.drawable.ants, R.drawable.lamb, R.drawable.rhinoceros, R.drawable.butterfly, R.drawable.dog, R.drawable.donkey, R.drawable.owl, R.drawable.flamingo, R.drawable.stingray, R.drawable.warthog};
-    String quiz_questions[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
-    String quiz_answers[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
+    String quiz_questions[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
+    String[][] quiz_answers = {{"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}};
     String answers[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
 
     TextToSpeech tts;
