@@ -15,7 +15,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class SecondTopic extends AppCompatActivity {
+public class FilmAndTV extends AppCompatActivity {
 
     Integer images[] = {R.drawable.ants, R.drawable.lamb, R.drawable.rhinoceros, R.drawable.butterfly, R.drawable.dog, R.drawable.donkey, R.drawable.owl, R.drawable.flamingo, R.drawable.stingray, R.drawable.warthog};
     String quiz_questions[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
@@ -68,7 +68,7 @@ public class SecondTopic extends AppCompatActivity {
 
                     String s = String.valueOf(parent.getItemAtPosition(position));
 
-                    Toast.makeText(SecondTopic.this, s, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FilmAndTV.this, s, Toast.LENGTH_SHORT).show();
 
                 } catch (Exception e) {
 

@@ -1,7 +1,6 @@
 package com.rheedkhadaly.quizzes;
 
 import android.app.Activity;
-import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -29,7 +28,6 @@ class CustomQuestionAdapter extends ArrayAdapter<String> implements View.OnClick
     String questionToSpeech = "";
     String answerToSpeech = "Is it";
 
-    TextView quizCounter;
     ImageView quizImage;
     TextView textQuestions;
     ImageButton quizImageButton;
@@ -67,21 +65,6 @@ class CustomQuestionAdapter extends ArrayAdapter<String> implements View.OnClick
                 }
             }
         });
-
-        quizCounter = (TextView) customView.findViewById(R.id.textCounter);
-
-        new CountDownTimer(100000, 1000) {
-
-            @Override
-            public void onTick(long millisUntilFinished) {
-                quizCounter.setText("Quiz Timer: " + millisUntilFinished / 1000);
-            }
-
-            @Override
-            public void onFinish() {
-                quizCounter.setText("Done!");
-            }
-        }.start();
 
         quizImage = (ImageView) customView.findViewById(R.id.imageQuizPicture);
 

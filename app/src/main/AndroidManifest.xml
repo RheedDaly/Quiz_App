@@ -23,26 +23,29 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".FirstTopic"
+        <activity
+            android:name=".Nature"
             android:label="@string/first_topic_title" >
             <intent-filter>
-                <action android:name="com.rheedkhadaly.quizzes.FIRSTTOPIC" />
+                <action android:name="com.rheedkhadaly.quizzes.NATURE" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondTopic"
+        <activity
+            android:name=".FilmAndTV"
             android:label="@string/second_topic_title" >
             <intent-filter>
-                <action android:name="com.rheedkhadaly.quizzes.SECONDTOPIC" />
+                <action android:name="com.rheedkhadaly.quizzes.FILMANDTV" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ThirdTopic"
+        <activity
+            android:name=".GeneralKnowledge"
             android:label="@string/third_topic_title" >
             <intent-filter>
-                <action android:name="com.rheedkhadaly.quizzes.THIRDTOPIC" />
+                <action android:name="com.rheedkhadaly.quizzes.GENERALKNOWLEDGE" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

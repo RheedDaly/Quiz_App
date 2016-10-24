@@ -3,7 +3,6 @@ package com.rheedkhadaly.quizzes;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,34 +14,23 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import java.util.Locale;
-
 /**
  * Created by Rheed on 9/28/2016.
  */
 
-public class ThirdTopic extends AppCompatActivity {
+public class GeneralKnowledge extends AppCompatActivity {
 
     Integer images[] = {R.drawable.ants, R.drawable.lamb, R.drawable.rhinoceros, R.drawable.butterfly, R.drawable.dog, R.drawable.donkey, R.drawable.owl, R.drawable.flamingo, R.drawable.stingray, R.drawable.warthog};
-    String quiz_questions[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
-    String[][] quiz_answers = {{"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}};
-    String answers[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
+    String quiz_questions[] = {"How many oscars did the Titanic movie got?", "How many Tomb Raider movies were made?", "Which malformation did Marilyn Monroe have when she was born?", "What is the house number of the Simpsons?", "What is the name of the prison in the film The Rock?", "Who is the protagonist in the Last Action Hero film?", "What is the profession of Popeye?", "What is the name of Steven Spielberg s black-and-white-film about the second world war?", "Who is the director of the X-files?", "Who did play the role of Peter Pan in the Peter Pan movie?"};
+    String[][] quiz_answers = {{"Eleven", "Nine", "Two", "Five"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}, {"a", "b", "c", "d"}};
+    String answers[] = {"Eleven", "b", "c", "d", "e", "f", "g", "h", "i", "j"};
 
-    TextToSpeech tts;
+    int score = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.third_topic);
-
-        tts = new TextToSpeech(ThirdTopic.this, new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if (status != TextToSpeech.ERROR) {
-                    tts.setLanguage(Locale.US);
-                }
-            }
-        });
 
         LayoutInflater layoutInflaterAndroid = LayoutInflater.from(this);
         View mView = layoutInflaterAndroid.inflate(R.layout.user_input_dialg_box, null);
@@ -91,14 +79,6 @@ public class ThirdTopic extends AppCompatActivity {
             }
         });
 
-    }
-
-    @Override
-    protected void onPause() {
-        if (tts != null) {
-
-        }
-        super.onPause();
     }
 
     @Override

@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    String topics[] = {"FirstTopic", "SecondTopic", "ThirdTopic", "FourthTopic"};
+    String topics[] = {"Nature", "Film And TV", "General Knowledge",};
     Integer images[] = {R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.four};
 
     @Override
@@ -27,8 +27,9 @@ public class MainActivity extends AppCompatActivity {
         topicListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String page = topics[position];
+                String page = topics[position].replaceAll(" ", "");
                 try{
+
                     Toast.makeText(MainActivity.this, page, Toast.LENGTH_SHORT).show();
                     Class ourpage = Class.forName("com.rheedkhadaly.quizzes." + page);
                     Intent a = new Intent(MainActivity.this, ourpage);
