@@ -1,5 +1,6 @@
 package com.rheedkhadaly.quizzes;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,6 +42,8 @@ public class Nature extends AppCompatActivity implements View.OnClickListener {
     RadioButton radioButtonFemale;
     Spinner spinnerAge;
     Button calculateScore;
+
+    UserDetails u;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +76,9 @@ public class Nature extends AppCompatActivity implements View.OnClickListener {
 
                 name = userName.getText().toString();
 
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(userName.getWindowToken(), 0);
+
                 if (radioButtonMale.isChecked()) {
                     gender = radioButtonMale.getText().toString();
                 }
@@ -82,7 +89,13 @@ public class Nature extends AppCompatActivity implements View.OnClickListener {
 
                 age = Integer.parseInt(spinnerAge.getSelectedItem().toString());
 
-                Toast.makeText(Nature.this, "Hey " + name + " You are a " + gender + " and your " + age + " years old.", Toast.LENGTH_LONG).show();
+                u = new UserDetails();
+
+                u.setName(name);
+                u.setGender(gender);
+                u.setAge(age);
+
+                Toast.makeText(Nature.this, "Hey " + u.getName() + " You are a " + u.getGener() + " and your " + u.getAge() + " years old.", Toast.LENGTH_LONG).show();
 
                 quizCounter = (TextView) findViewById(R.id.textCounter);
 
@@ -96,9 +109,7 @@ public class Nature extends AppCompatActivity implements View.OnClickListener {
                     @Override
                     public void onFinish() {
                         quizCounter.setText("Done!");
-//                        Intent myIntent = new Intent("com.rheedkhadaly.quizzes.MAINACTIVITY");
-//                        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                        startActivity(myIntent);
+//
                     }
                 }.start();
             }
@@ -200,7 +211,8 @@ public class Nature extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.buttonFinished:
-                Toast.makeText(Nature.this, String.valueOf(5), Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(Nature.this, u.getName() + " " + u.getGener() + " " + u.getAge() + " " + u.getScore(), Toast.LENGTH_SHORT).show();
                 break;
         }
     }

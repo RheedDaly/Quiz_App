@@ -1,5 +1,4 @@
 package com.rheedkhadaly.quizzes;
-
 import android.app.Activity;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
@@ -17,17 +16,17 @@ import java.util.Locale;
 
 class CustomQuestionAdapter extends ArrayAdapter<String> implements View.OnClickListener {
 
+    public static String filename = "MySharedString";
     private final Activity context;
     private final Integer[] quizImages;
     private final String[] quizQuestions;
     private final String[][] quizAnswers;
     private final String[] answers;
-
     TextToSpeech tts;
-
     String questionToSpeech = "";
     String answerToSpeech = "Is it";
-
+    int score = 0;
+    UserDetails u;
     ImageView quizImage;
     TextView textQuestions;
     ImageButton quizImageButton;
@@ -162,13 +161,18 @@ class CustomQuestionAdapter extends ArrayAdapter<String> implements View.OnClick
                 String aa = quizAnswers[firstAnswerPosition][0];
                 String qq = answers[firstAnswerPosition];
 
+                u = new UserDetails();
+
                 if (aa == qq) {
                     a = "true";
+                    score += 20;
                 } else {
                     a = "false";
                 }
 
-                Toast.makeText(this.context, aa + " " + a, Toast.LENGTH_SHORT).show();
+                u.setScore(score);
+
+                Toast.makeText(this.context, aa + " " + a + " " + u.getScore(), Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.radio_button_second_answer:
