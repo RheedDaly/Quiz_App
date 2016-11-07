@@ -50,5 +50,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ShowScore"
+            android:label="@string/third_topic_title">
+            <intent-filter>
+                <action android:name="com.rheedkhadaly.quizzes.SHOWSCORE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -66,18 +65,6 @@ public class GeneralKnowledge extends AppCompatActivity {
         ListAdapter topicAdapter = new CustomQuestionAdapter(this, images, quiz_questions, quiz_answers, answers);
         ListView topicListView = (ListView) findViewById(R.id.quiz_list_view);
         topicListView.setAdapter(topicAdapter);
-
-        topicListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                try {
-
-                } catch (Exception e) {
-
-                }
-            }
-        });
 
     }
 

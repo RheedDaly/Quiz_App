@@ -15,12 +15,6 @@ public class UserDetails {
 
     }
 
-    public UserDetails(String name, String gender, int age) {
-        this.name = name;
-        this.gender = gender;
-        this.age = age;
-    }
-
     public UserDetails(String name, String gender, int age, int score) {
         this.name = name;
         this.gender = gender;

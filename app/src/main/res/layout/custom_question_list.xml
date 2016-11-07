@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -15,9 +15,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:background="#00e6e6"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <TextView
                 android:id="@+id/textCounter"
@@ -29,11 +33,12 @@
             <ImageView
                 android:id="@+id/imageQuizPicture"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_weight="3.16"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/quiz_picture" />
 
@@ -42,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
                 android:background="#00e6e6"
                 android:orientation="horizontal"
                 android:weightSum="2">
@@ -50,9 +56,10 @@
                     android:id="@+id/txtQuestions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
                     android:layout_weight="1"
                     android:text="What does the sign above mean?"
-                    android:textColor="#ffffff"
+                    android:textColor="#000"
                     android:textSize="20sp" />
 
                 <ImageButton
@@ -65,45 +72,48 @@
             </LinearLayout>
 
             <RadioGroup
+                android:id="@+id/radioGroupAnswers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <RadioButton
-                    android:id="@+id/radio_button_first_answer"
+                    android:id="@+id/text_view_first_answer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:text="Comma"
-                    android:textColor="#ffffff"
+                    android:textColor="#000"
                     android:textSize="20sp" />
 
                 <RadioButton
-                    android:id="@+id/radio_button_second_answer"
+                    android:id="@+id/text_view_second_answer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="Exclamation"
-                    android:textColor="#ffffff"
+                    android:text="Comma"
+                    android:textColor="#000"
                     android:textSize="20sp" />
 
                 <RadioButton
-                    android:id="@+id/radio_button_third_answer"
+                    android:id="@+id/text_view_third_answer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="Semi-colon"
-                    android:textColor="#ffffff"
+                    android:text="Comma"
+                    android:textColor="#000"
                     android:textSize="20sp" />
 
                 <RadioButton
-                    android:id="@+id/radio_button_fourth_answer"
+                    android:id="@+id/text_view_fourth_answer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Question mark"
-                    android:textColor="#ffffff"
+                    android:layout_marginBottom="20dp"
+                    android:text="Comma"
+                    android:textColor="#000"
                     android:textSize="20sp" />
 
             </RadioGroup>
@@ -113,6 +123,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
@@ -133,6 +144,7 @@
             </LinearLayout>
 
         </LinearLayout>
+
     </RelativeLayout>
 
 </ScrollView>
