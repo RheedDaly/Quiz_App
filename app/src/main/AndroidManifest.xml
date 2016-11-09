@@ -51,10 +51,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ShowScore"
-            android:label="@string/third_topic_title">
+            android:name=".ShowResult"
+            android:label="Quiz Results">
             <intent-filter>
-                <action android:name="com.rheedkhadaly.quizzes.SHOWSCORE" />
+                <action android:name="com.rheedkhadaly.quizzes.SHOWRESULTS" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

@@ -2,24 +2,42 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/scrollViewBackgroundColor"
     android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/quiz_list_view"
+    <TextView
+        android:id="@+id/quizTextViewTimer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/submit"
-        android:divider="#00e6e6"
-        android:dividerHeight="2dp" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/listViewBackgroundColor"
+        android:gravity="center_horizontal"
+        android:text="@string/question_timer"
+        android:textColor="@color/textColor"
+        android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/submit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="Submit"
-            android:textColor="#fff"
-            android:textSize="20sp" />
+    <ListView
+        android:id="@+id/quizListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/quizSubmitButton"
+        android:layout_marginTop="50dp" />
+
+    <Button
+        android:id="@+id/quizSubmitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/listViewBackgroundColor"
+        android:text="@string/submit_button"
+        android:textColor="@color/textColor"
+        android:textSize="20sp" />
 
 </RelativeLayout>

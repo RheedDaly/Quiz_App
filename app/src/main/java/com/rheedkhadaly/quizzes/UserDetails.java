@@ -1,9 +1,5 @@
 package com.rheedkhadaly.quizzes;
 
-/**
- * Created by Rheed on 10/24/2016.
- */
-
 public class UserDetails {
 
     private String name;
@@ -23,34 +19,34 @@ public class UserDetails {
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
-    public void setName(String userName) {
-        this.name = userName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setGender(String userGender) {
-        this.gender = userGender;
+    public String getGender() {
+        return gender;
     }
 
-    public String getGener() {
-        return this.gender;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public int getAge() {
-        return this.age;
+        return age;
     }
 
-    public void setAge(int userAge) {
-        this.age = userAge;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public int getScore() {
-        return this.score;
+        return score;
     }
 
-    public void setScore(int userScore) {
-        this.score = userScore;
+    public void setScore(int score) {
+        this.score = score;
     }
 }

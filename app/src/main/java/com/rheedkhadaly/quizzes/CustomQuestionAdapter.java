@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -20,6 +21,8 @@ import java.util.Locale;
 class CustomQuestionAdapter extends ArrayAdapter<String> {
 
     public static ArrayList<String> selectedAnswers;
+    public static ArrayList<Integer> score;
+    public static ArrayList<String> ans;
     private final Context context;
     private final Integer[] quizImages;
     private final String[] quizQuestions;
@@ -41,6 +44,16 @@ class CustomQuestionAdapter extends ArrayAdapter<String> {
         selectedAnswers = new ArrayList<>();
         for (int i = 0; i < quizQuestions.length; i++) {
             selectedAnswers.add("Not Attempted");
+        }
+
+        score = new ArrayList<>();
+        for (int i = 0; i < quizQuestions.length; i++) {
+            score.add(0);
+        }
+
+        ans = new ArrayList<>();
+        for (int i = 0; i < answers.length; i++) {
+            ans.add(answers[i]);
         }
 
     }
@@ -105,10 +118,16 @@ class CustomQuestionAdapter extends ArrayAdapter<String> {
 
         holder.textQuestions.setText(quizQuestions[position]);
 
+
         holder.firstAnswer.setText(quizAnswers[position][0]);
         holder.secondAnswer.setText(quizAnswers[position][1]);
         holder.thirdAnswer.setText(quizAnswers[position][2]);
         holder.fourthAnswer.setText(quizAnswers[position][3]);
+
+        holder.firstAnswer.setChecked(false);
+        holder.secondAnswer.setChecked(false);
+        holder.thirdAnswer.setChecked(false);
+        holder.fourthAnswer.setChecked(false);
 
         holder.quizImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,15 +185,51 @@ class CustomQuestionAdapter extends ArrayAdapter<String> {
                 switch (checkedId) {
                     case R.id.text_view_first_answer:
                         selectedAnswers.set(position, holder.firstAnswer.getText().toString());
+                        if (ans.contains(holder.firstAnswer.getText().toString())) {
+                            int points = 20;
+                            score.set(position, points);
+                        } else {
+                            int noPoints = 0;
+                            score.set(position, noPoints);
+                        }
+                        tts.speak("You chose " + holder.firstAnswer.getText().toString(), TextToSpeech.QUEUE_ADD, null);
+                        Toast.makeText(getContext(), String.valueOf(position), Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.text_view_second_answer:
                         selectedAnswers.set(position, holder.secondAnswer.getText().toString());
+                        if (ans.contains(holder.secondAnswer.getText().toString())) {
+                            int points = 20;
+                            score.set(position, points);
+                        } else {
+                            int noPoints = 0;
+                            score.set(position, noPoints);
+                        }
+                        tts.speak("You chose " + holder.secondAnswer.getText().toString(), TextToSpeech.QUEUE_ADD, null);
+                        Toast.makeText(getContext(), String.valueOf(position), Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.text_view_third_answer:
                         selectedAnswers.set(position, holder.thirdAnswer.getText().toString());
+                        if (ans.contains(holder.thirdAnswer.getText().toString())) {
+                            int points = 20;
+                            score.set(position, points);
+                        } else {
+                            int noPoints = 0;
+                            score.set(position, noPoints);
+                        }
+                        tts.speak("You chose " + holder.thirdAnswer.getText().toString(), TextToSpeech.QUEUE_ADD, null);
+                        Toast.makeText(getContext(), String.valueOf(position), Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.text_view_fourth_answer:
                         selectedAnswers.set(position, holder.fourthAnswer.getText().toString());
+                        if (ans.contains(holder.fourthAnswer.getText().toString())) {
+                            int points = 20;
+                            score.set(position, points);
+                        } else {
+                            int noPoints = 0;
+                            score.set(position, noPoints);
+                        }
+                        tts.speak("You chose " + holder.fourthAnswer.getText().toString(), TextToSpeech.QUEUE_ADD, null);
+                        Toast.makeText(getContext(), String.valueOf(position), Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
