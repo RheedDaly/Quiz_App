@@ -40,6 +40,20 @@ public class ShowResult extends AppCompatActivity {
         alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
+                TextView textView = (TextView) findViewById(R.id.textView);
+                TextView textView3 = (TextView) findViewById(R.id.textView3);
+
+                Intent in = getIntent();
+
+                ArrayList<String> answers = (ArrayList<String>) in.getSerializableExtra("answers");
+                int score = in.getIntExtra("score", 0);
+                String message = "";
+                // get the value of selected answers from custom adapter
+                for (int i = 0; i < answers.size(); i++) {
+                    message += i + " " + answers.get(i) + "\n";
+                }
+                textView.setText(message);
+                textView3.setText("Your score is :" + String.valueOf(score));
                 Toast.makeText(ShowResult.this, "Hey ", Toast.LENGTH_SHORT).show();
             }
         });
@@ -56,19 +70,6 @@ public class ShowResult extends AppCompatActivity {
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
 
-        TextView textView = (TextView) findViewById(R.id.textView);
-        TextView textView3 = (TextView) findViewById(R.id.textView3);
 
-        Intent in = getIntent();
-
-        ArrayList<String> answers = (ArrayList<String>) in.getSerializableExtra("answers");
-        int score = in.getIntExtra("score", 0);
-        String message = "";
-        // get the value of selected answers from custom adapter
-        for (int i = 0; i < answers.size(); i++) {
-            message += i + " " + answers.get(i) + "\n";
-        }
-        textView.setText(message);
-        textView3.setText("Your score is :" + String.valueOf(score));
     }
 }
